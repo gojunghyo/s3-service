@@ -1,0 +1,10 @@
+server:
+  port: 9090
+
+aws-s3:
+  accessKey:
+  secretKey:
+
+file-store:
+  bucketName:
+  uploadPath: img/
