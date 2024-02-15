@@ -45,3 +45,10 @@ AmazonConfig 파일에서 사용할수있도록 설정
 
 2. ![다운로드확인](https://github.com/gojunghyo/s3-service/assets/128199051/e13fcd6b-852e-4d92-bb81-c386afcc1e34)
 
+
+
+# 마무리하며
+```
+파일 업로드시 경로와 파일명은 한글보다
+영문으로 작성 (Unicode 관련)
+```
