@@ -1,12 +1,16 @@
 package com.s3.example.s3service.service
 
 import com.amazonaws.services.s3.AmazonS3
+import com.amazonaws.services.s3.model.GetObjectRequest
 import com.amazonaws.services.s3.model.ObjectMetadata
 import com.amazonaws.services.s3.model.PutObjectRequest
 import com.s3.example.s3service.config.ShareFileStoreProperties
+import com.s3.example.s3service.exception.DownloadFileException
 import com.s3.example.s3service.exception.UploadFileException
 import org.apache.http.entity.ContentType
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.http.HttpHeaders
+import org.springframework.http.MediaType
 import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Service
 import org.springframework.web.multipart.MultipartFile
@@ -74,6 +78,25 @@ class S3Service(
     }
 
     override fun download(fileName: String): ResponseEntity<ByteArray> {
-        TODO("Not yet implemented")
+        val imageToByteArray = downloadImageToByteArray(fileName)
+
+
+        return ResponseEntity.ok()
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=$fileName")
+                .contentType(MediaType.IMAGE_JPEG)
+                .body(imageToByteArray)
     }
+
+    fun downloadImageToByteArray(fileName: String): ByteArray {
+        try {
+            return s3client.getObject(GetObjectRequest(
+                    shareFileStoreProperties.bucketName,
+                    shareFileStoreProperties.uploadPath + fileName))
+                    .objectContent
+                    .readAllBytes()
+        } catch (e: Exception) {
+            throw DownloadFileException("요청하신 파일명으로 파일이 존재하지 않습니다.")
+        }
+    }
+
 }

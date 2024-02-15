@@ -5,7 +5,6 @@ import com.s3.example.s3service.dto.S3ResponseDto
 import com.s3.example.s3service.service.S3Service
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
-import org.springframework.http.HttpStatusCode
 import org.springframework.http.MediaType
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
@@ -40,8 +39,8 @@ class S3Controller(
     @GetMapping("/img/download")
     fun imgDownload(
             @RequestParam("fileName") fileName: String
-    ) {
-        println("IN fileName = $fileName")
+    ): ResponseEntity<ByteArray> {
+        return s3Service.download(fileName)
     }
 
 }
