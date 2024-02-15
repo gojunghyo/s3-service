@@ -4,7 +4,7 @@
 ## 기술 스택
 ```
 프레임워크: Spring Boot 3.2.2
-언어: Java 17
+언어: Kotlin (JAVA 17)
 빌드도구: Gradle 8.5
 ```
 
