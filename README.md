@@ -43,4 +43,5 @@ AmazonConfig 파일에서 사용할수있도록 설정
 
 1. ![업로드상태](https://github.com/gojunghyo/s3-service/assets/128199051/3a66a458-f83d-4f2c-84bd-74ea297f8921)
 
-2.
+2. ![다운로드확인](https://github.com/gojunghyo/s3-service/assets/128199051/e13fcd6b-852e-4d92-bb81-c386afcc1e34)
+
