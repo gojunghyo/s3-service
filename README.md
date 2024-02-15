@@ -1,6 +1,21 @@
 ﻿# s3-service
 
 
+## 기술 스택
+```
+프레임워크: Spring Boot 3.2.2
+언어: Java 17
+빌드도구: Gradle 8.5
+```
+
+## 개발환경 구성
+
+```
+1. java 17 (Build Tools -> Gradle -> 17 셋팅)
+2. file -> Project Settings -> Project Java 17 (corretto-17) Setting
+3. gradle build
+```
+
 ## S3 KEY 발급 및 버킷생성
 ```
 1. accessKey
